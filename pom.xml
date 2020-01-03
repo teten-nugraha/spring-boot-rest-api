@@ -24,20 +24,6 @@
         <sonar.language>java</sonar.language>
     </properties>
 
-
-
-    <distributionManagement>
-        <repository>
-            <id>nexus</id>
-            <name>Allianz Indo nexus repo</name>
-            <url>https://ci-repo.azlife.allianz.co.id/nexus/content/repositories/releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>nexus</id>
-            <url>https://ci-repo.azlife.allianz.co.id/nexus/content/repositories/snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
