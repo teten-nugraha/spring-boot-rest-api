@@ -14,7 +14,6 @@ import java.util.Optional;
  * Project Name     : spring-boot-testing
  * Username         : Teten Nugraha
  * Date Time        : 12/18/2019
- * email            : Teten.nugraha@allianz.co.id
  * Telegram         : @tennugraha
  */
 
