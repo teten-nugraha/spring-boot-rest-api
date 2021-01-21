@@ -34,6 +34,7 @@ public class User {
     @Column(nullable = false, length = 100)
     private String password;
 
+    @NotEmpty(message = "Username should not be empty")
     @Column(nullable = false, length = 100)
     private String name;
 
