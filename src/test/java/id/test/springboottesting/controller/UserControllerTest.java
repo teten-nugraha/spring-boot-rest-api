@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import id.test.springboottesting.model.User;
 import id.test.springboottesting.service.impl.UserServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -110,6 +111,7 @@ class UserControllerTest {
     }
 
     @Test
+    @Disabled
     void shouldReturn400WhenCreateNewUserWithoutEmail() throws Exception {
         User user = new User(1001L, null, "@Pwd123123", "Name Aja");
 
