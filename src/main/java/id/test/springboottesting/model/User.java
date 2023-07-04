@@ -1,14 +1,13 @@
 package id.test.springboottesting.model;
 
 import id.test.springboottesting.util.annotation.ValidPassword;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import lombok.*;
+import org.hibernate.proxy.HibernateProxy;
 
-import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
+import java.util.Objects;
 
 /***
  * Project Name     : spring-boot-testing
@@ -21,6 +20,7 @@ import javax.validation.constraints.NotEmpty;
 @Table(name = "users")
 @Setter
 @Getter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
@@ -42,4 +42,20 @@ public class User {
     @Column(nullable = false, length = 100)
     private String name;
 
+    @Override
+    public final boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+        if (this.getClass() != o.getClass()) return false;
+        Class<?> oEffectiveClass = o instanceof HibernateProxy hibernateProxy ? (hibernateProxy).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
+        Class<?> thisEffectiveClass = this instanceof HibernateProxy hibernateProxy ? (hibernateProxy).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
+        if (thisEffectiveClass != oEffectiveClass) return false;
+        User user = (User) o;
+        return getId() != null && Objects.equals(getId(), user.getId());
+    }
+
+    @Override
+    public final int hashCode() {
+        return getClass().hashCode();
+    }
 }

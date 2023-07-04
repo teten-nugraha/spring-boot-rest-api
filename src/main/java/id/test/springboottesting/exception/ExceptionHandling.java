@@ -1,5 +1,6 @@
 package id.test.springboottesting.exception;
 
+import jakarta.validation.ValidationException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -7,7 +8,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import javax.validation.ValidationException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -57,7 +57,7 @@ public class ExceptionHandling extends ResponseEntityExceptionHandler {
                 message,
                 "Please enter a valid entity with proper constraints",
                 HttpStatus.BAD_REQUEST.toString());
-        log.info("Entity is not valid.", message);
+        log.info("Entity is not valid {}.", message);
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 
